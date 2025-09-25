@@ -1,0 +1,38 @@
+name: Deploy
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      # Optional: Only build apps that changed (Turborepo does this automatically)
+      - name: Build all apps
+        run: pnpm build
+
+      # Deploy each app to its own Vercel project (or Netlify site)
+      - name: Deploy buyer
+        run: npx vercel --prod --cwd apps/buyer --token ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy vendor-admin
+        run: npx vercel --prod --cwd apps/vendor-admin --token ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy super-admin
+        run: npx vercel --prod --cwd apps/super-admin --token ${{ secrets.VERCEL_TOKEN }}
