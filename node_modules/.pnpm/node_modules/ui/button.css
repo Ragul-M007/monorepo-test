@@ -1,0 +1,44 @@
+/* packages/ui/button.css */
+.go-hawq-btn {
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.go-hawq-btn--primary {
+  background-color: #3b82f6; /* blue-500 */
+  color: white;
+}
+.go-hawq-btn--primary:hover:not(.go-hawq-btn--disabled) {
+  background-color: #2563eb; /* blue-600 */
+}
+
+.go-hawq-btn--secondary {
+  background-color: #e5e7eb; /* gray-200 */
+  color: #1f2937; /* gray-800 */
+}
+.go-hawq-btn--secondary:hover:not(.go-hawq-btn--disabled) {
+  background-color: #d1d5db; /* gray-300 */
+}
+
+.go-hawq-btn--danger {
+  background-color: #ef4444; /* red-500 */
+  color: white;
+}
+.go-hawq-btn--danger:hover:not(.go-hawq-btn--disabled) {
+  background-color: #dc2626; /* red-600 */
+}
+
+.go-hawq-btn--small { padding: 6px 12px; font-size: 14px; }
+.go-hawq-btn--medium { padding: 8px 16px; font-size: 16px; }
+.go-hawq-btn--large { padding: 12px 24px; font-size: 18px; }
+
+.go-hawq-btn--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
