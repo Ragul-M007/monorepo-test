@@ -5,7 +5,9 @@ import { Button } from "ui";
 function App() {
   return (
     <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
-      <h1>Super Admin Dashboard</h1>  
+      <h1>Super Admin Dashboard </h1>  
+      <h1>Hii admin  </h1>  
+
       <Button
         variant="primary"
         size="large"
